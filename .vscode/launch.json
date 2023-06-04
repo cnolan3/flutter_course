@@ -1,0 +1,28 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "dice_roller",
+            "cwd": "DIce_Roller/dice_roller",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "dice_roller (profile mode)",
+            "cwd": "DIce_Roller/dice_roller",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "dice_roller (release mode)",
+            "cwd": "DIce_Roller/dice_roller",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
