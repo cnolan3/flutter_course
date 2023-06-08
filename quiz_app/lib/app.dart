@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:quiz_app/question_screen.dart';
 import 'package:quiz_app/start_screen.dart';
 
 class MyApp extends StatefulWidget {
@@ -12,16 +13,22 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  var curScreen;
+  Widget? curScreen;
 
-  _MyAppState() {
-    curScreen = const StartScreen();
+  @override
+  void initState() {
+    super.initState();
+    curScreen = StartScreen(setQuestionScreen);
   }
 
   void setScreen(Widget screen) {
     setState(() {
       curScreen = screen;
     });
+  }
+
+  void setQuestionScreen() {
+    setScreen(const QuestionScreen());
   }
 
   @override
