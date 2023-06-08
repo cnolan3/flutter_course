@@ -2,8 +2,27 @@ import 'package:flutter/material.dart';
 
 import 'package:quiz_app/start_screen.dart';
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() {
+    return _MyAppState();
+  }
+}
+
+class _MyAppState extends State<MyApp> {
+  var curScreen;
+
+  _MyAppState() {
+    curScreen = const StartScreen();
+  }
+
+  void setScreen(Widget screen) {
+    setState(() {
+      curScreen = screen;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +41,6 @@ class MyApp extends StatelessWidget {
                       Colors.purple.shade900,
                       Colors.purple.shade800
                     ])),
-                child: const StartScreen())));
+                child: curScreen)));
   }
 }
