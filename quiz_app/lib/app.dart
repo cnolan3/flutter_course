@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:quiz_app/question_screen.dart';
 import 'package:quiz_app/start_screen.dart';
+import 'package:quiz_app/results_screen.dart';
+import 'package:quiz_app/data/questions.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -13,6 +15,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  final List<String> selectedAnswers = [];
   Widget? curScreen;
 
   @override
@@ -28,7 +31,15 @@ class _MyAppState extends State<MyApp> {
   }
 
   void setQuestionScreen() {
-    setScreen(const QuestionScreen());
+    setScreen(QuestionScreen(onSelectAnswer: chooseAnswer));
+  }
+
+  void chooseAnswer(String answer) {
+    selectedAnswers.add(answer);
+
+    if (selectedAnswers.length == questions.length) {
+      setScreen(const ResultsScreen());
+    }
   }
 
   @override
