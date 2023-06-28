@@ -38,7 +38,9 @@ class _MyAppState extends State<MyApp> {
     selectedAnswers.add(answer);
 
     if (selectedAnswers.length == questions.length) {
-      setScreen(const ResultsScreen());
+      setScreen(ResultsScreen(
+        selectedAnswers: selectedAnswers,
+      ));
     }
   }
 
