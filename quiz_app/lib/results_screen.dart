@@ -4,7 +4,10 @@ import 'package:quiz_app/questions_summary.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ResultsScreen extends StatelessWidget {
-  const ResultsScreen({super.key, required this.selectedAnswers});
+  final void Function() restartQuiz;
+
+  const ResultsScreen(
+      {super.key, required this.selectedAnswers, required this.restartQuiz});
 
   final List<String> selectedAnswers;
 
@@ -53,8 +56,18 @@ class ResultsScreen extends StatelessWidget {
                   const SizedBox(
                     height: 30,
                   ),
-                  TextButton(
-                      onPressed: () {}, child: const Text('Restart Quiz'))
+                  OutlinedButton.icon(
+                      onPressed: () {
+                        restartQuiz();
+                      },
+                      style: OutlinedButton.styleFrom(
+                          foregroundColor: Colors.white),
+                      icon: const Icon(Icons.replay),
+                      label: Text(
+                        'Restart Quiz',
+                        style: GoogleFonts.lato(
+                            fontSize: 20, fontWeight: FontWeight.normal),
+                      ))
                 ])));
   }
 }

@@ -34,12 +34,21 @@ class _MyAppState extends State<MyApp> {
     setScreen(QuestionScreen(onSelectAnswer: chooseAnswer));
   }
 
+  void restartQuiz() {
+    setState(() {
+      selectedAnswers.clear();
+    });
+
+    setScreen(StartScreen(setQuestionScreen));
+  }
+
   void chooseAnswer(String answer) {
     selectedAnswers.add(answer);
 
     if (selectedAnswers.length == questions.length) {
       setScreen(ResultsScreen(
         selectedAnswers: selectedAnswers,
+        restartQuiz: restartQuiz,
       ));
     }
   }
